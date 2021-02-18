@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 40% 1fr;
+}
+
+.leftContainer {
+  display: grid;
+  grid-template-columns: 5vw auto 1fr;
+  grid-template-rows: 20vh auto 1fr;
+}
+
+.navContainer {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: flex inline;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+.navItemCurrent {
+  font-weight: normal;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}
+
+.mainContainer {
+  margin: 5vh 6%;
+}

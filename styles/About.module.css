@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto;
+}
+
+.picContainer {
+  grid-row-start: 2;
+}
+
+.pic {
+  width: 15vh;
+  height: 15vh;
+  border-radius: 50%;
+
+  background-image: url("/kye-nyc.jpg");
+  background-size: cover;
+}
+
+.intro {
+  grid-row-start: 4;
+  font-size: 2rem;
+  font-weight: lighter;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  grid-row-start: 6;
+}
+
+.links {
+  grid-row-start: 8;
+}
