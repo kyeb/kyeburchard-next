@@ -10,7 +10,7 @@ const Project = (props: ProjectProps) => {
   return (
     <>
       {name.replace(".md", "")}
-      {content}
+      <p>{content}</p>
     </>
   );
 };

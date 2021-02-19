@@ -1,10 +1,16 @@
+import Image from "next/image";
 import styles from "../styles/About.module.css";
 
 const About = () => {
   return (
     <div className={styles.grid}>
       <div className={styles.picContainer}>
-        <div className={styles.pic} />
+        <Image
+          className={styles.pic}
+          src="/kye-nyc.jpg"
+          width={200}
+          height={200}
+        />
       </div>
       <div className={styles.intro}>
         <h1>Hey! I'm Kye.</h1>
@@ -33,7 +39,18 @@ const About = () => {
         </p>
       </div>
       <div className={styles.links}>
-        <i className="fab fa-github" />
+        <a className={styles.link} href="https://github.com/kyeb/">
+          <i className="fab fa-github" />
+        </a>
+        <a className={styles.link} href="https://twitter.com/kyeburchard">
+          <i className="fab fa-twitter" />
+        </a>
+        <a className={styles.link} href="mailto:kyeb@mit.edu">
+          <i className="fas fa-envelope" />
+        </a>
+        <a className={styles.link} href="/resume_kye.pdf">
+          <i className="fas fa-file-alt" />
+        </a>
       </div>
     </div>
   );

@@ -1,0 +1,15 @@
+.grid {
+  dispaly: grid;
+  grid-template-columns: 2;
+}
+
+.header {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.projectHeader {
+}
+
+.projectDescription {
+}

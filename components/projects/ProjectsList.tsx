@@ -1,5 +1,6 @@
 import { ProjectInfo } from "../../pages/projects";
 import Project from "./Project";
+import styles from "../../styles/ProjectsList.module.css";
 
 interface ProjectsListProps {
   projects: ProjectInfo[];
@@ -8,7 +9,7 @@ interface ProjectsListProps {
 const ProjectsList = (props: ProjectsListProps) => {
   return (
     <>
-      <h3>some stuff I have worked on recently...</h3>
+      <h1 className={styles.header}>some stuff I have worked on recently</h1>
       <div>
         {props.projects.map((project) => (
           <Project info={project} key={project.name} />
