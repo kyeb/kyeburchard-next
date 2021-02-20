@@ -22,10 +22,21 @@ const Background = () => {
     window.addEventListener("resize", updateWindowSize);
   }, []);
 
+  const resizeCanvas = (canvas: HTMLCanvasElement) => {
+    const { width, height } = canvas.getBoundingClientRect();
+
+    if (canvas.width !== width || canvas.height !== height) {
+      const { devicePixelRatio: ratio = 1 } = window;
+      const context = canvas.getContext("2d");
+      canvas.width = width * ratio;
+      canvas.height = height * ratio;
+      context?.scale(ratio, ratio);
+    }
+  };
+
   useEffect(() => {
     if (!canvasRef.current) return;
-    canvasRef.current.width = width;
-    canvasRef.current.height = height;
+    resizeCanvas(canvasRef.current);
     initializeLines(width, height);
   }, [width, height]);
 
