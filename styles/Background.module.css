@@ -1,4 +1,4 @@
 .canvas {
-  position: absolute;
-  z-index: 1;
+  /* for some reason, canvas overflows without this */
+  display: block;
 }

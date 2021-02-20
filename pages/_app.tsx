@@ -1,4 +1,5 @@
 import React from "react";
+import Background from "../components/Background";
 import "../styles/_globals.css";
 import "../styles/fontawesome-all.css";
 
@@ -9,7 +10,14 @@ interface AppProps {
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps } = props;
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <div className="background">
+        <Background />
+      </div>
+      <Component {...pageProps} />{" "}
+    </>
+  );
 };
 
 export default MyApp;

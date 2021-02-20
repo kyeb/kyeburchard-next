@@ -13,6 +13,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   font-family: "Lato", sans-serif;
   background-color: var(--dark);
+  overflow-x: hidden;
 }
 
 a {
@@ -38,4 +39,9 @@ p {
 
 * {
   box-sizing: border-box;
+}
+
+.background {
+  position: absolute;
+  z-index: 0;
 }
