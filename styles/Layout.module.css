@@ -1,6 +1,6 @@
 .grid {
   display: grid;
-  grid-template-columns: 1fr 40% 1fr;
+  grid-template-columns: 1fr 50% 1fr;
   grid-template-rows: 5vh auto 1fr;
   height: 100%;
 }
@@ -17,6 +17,7 @@
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 5;
 
   font-size: 1.5rem;
   font-weight: 300;
@@ -37,7 +38,12 @@
   grid-column-start: 2;
   grid-row-start: 2;
   border-radius: 5px;
+  z-index: 5;
 }
 
 .rightContainer {
+}
+
+.hidden {
+  display: none;
 }
