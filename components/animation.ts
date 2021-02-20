@@ -7,9 +7,9 @@ interface Line {
   dirY: number;
 }
 
-const numLines = 40;
+const numLines = 30;
 let positions: Line[] = [];
-const maxSpeed = 0.2;
+const maxSpeed = 5;
 
 const getRandomLine = (w: number, h: number): Line => {
   return {
@@ -72,32 +72,52 @@ export const initializeLines = (w: number, h: number) => {
     return line;
   });
 };
-export const updateLines = (
-  frameCount: number,
-  width: number,
-  height: number
-) => {
+
+export const updateLines = (width: number, height: number) => {
   const newX = (x: number, dir: number) => {
-    if (x === 0 || x === width) return x;
-    else return x + ((dir * frameCount) % width);
+    if (x <= 0) return 0;
+    else if (x >= width) return width;
+    else return x + dir;
   };
   const newY = (y: number, dir: number) => {
-    if (y === 0 || y === height) return y;
-    else return y + ((dir * frameCount) % height);
+    if (y <= 0) return 0;
+    else if (y >= height) return height;
+    else return y + dir;
   };
-  const newPositions: Line[] = positions.map((l) => ({
+
+  const newXY = (l: Line) => ({
     ...l,
     x0: newX(l.x0, l.dirX),
     y0: newY(l.y0, l.dirY),
     x1: newX(l.x1, l.dirX),
     y1: newY(l.y1, l.dirY),
-  }));
+  });
+
+  const newPositions: Line[] = positions.map((l) => {
+    // off screen condition
+    const nextLine = newXY(newXY(l));
+    if (
+      (nextLine.x0 === 0 && nextLine.y0 == 0) ||
+      (nextLine.x0 === width && nextLine.y0 == 0) ||
+      (nextLine.x0 === 0 && nextLine.y0 == height) ||
+      (nextLine.x0 === width && nextLine.y0 == height) ||
+      (nextLine.x1 === 0 && nextLine.y1 == 0) ||
+      (nextLine.x1 === width && nextLine.y1 == 0) ||
+      (nextLine.x1 === 0 && nextLine.y1 == height) ||
+      (nextLine.x1 === width && nextLine.y1 == height)
+    ) {
+      l.dirX = -l.dirX;
+      l.dirY = -l.dirY;
+      return newXY(l);
+    }
+    return newXY(l);
+  });
+
   positions = newPositions;
+  console.log(positions[0].dirX);
 };
-export const drawLines = (
-  ctx: CanvasRenderingContext2D,
-  frameCount: number
-) => {
+
+export const drawLines = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.strokeStyle = "#ffffff";
   ctx.lineWidth = 0.5;
