@@ -3,7 +3,6 @@ import Head from "next/head";
 import Link from "next/link";
 
 import styles from "../styles/Layout.module.css";
-import Background from "./Background";
 
 const pages = [
   { name: "home", path: "/" },
@@ -39,7 +38,6 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         <title>Kye Burchard</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Background />
       <div className={styles.grid}>
         <div className={styles.leftContainer}>
           <nav className={styles.navContainer}>{pages.map(renderNavLink)}</nav>
