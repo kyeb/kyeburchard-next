@@ -114,7 +114,6 @@ export const updateLines = (width: number, height: number) => {
   });
 
   positions = newPositions;
-  console.log(positions[0].dirX);
 };
 
 export const drawLines = (ctx: CanvasRenderingContext2D) => {
