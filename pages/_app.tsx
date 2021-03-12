@@ -12,9 +12,7 @@ const MyApp = (props: AppProps) => {
   const { Component, pageProps } = props;
   return (
     <>
-      <div className="background">
-        <Background />
-      </div>
+      <Background />
       <Component {...pageProps} />{" "}
     </>
   );
