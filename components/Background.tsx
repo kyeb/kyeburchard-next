@@ -22,21 +22,8 @@ const Background = () => {
     window.addEventListener("resize", updateWindowSize);
   }, []);
 
-  const resizeCanvas = (canvas: HTMLCanvasElement) => {
-    const { width, height } = canvas.getBoundingClientRect();
-
-    if (canvas.width !== width || canvas.height !== height) {
-      const { devicePixelRatio: ratio = 1 } = window;
-      const context = canvas.getContext("2d");
-      canvas.width = width * ratio;
-      canvas.height = height * ratio;
-      context?.scale(ratio, ratio);
-    }
-  };
-
   useEffect(() => {
     if (!canvasRef.current) return;
-    resizeCanvas(canvasRef.current);
     initializeLines(width, height);
   }, [width, height]);
 
@@ -71,7 +58,16 @@ const Background = () => {
   // no deps here guarantees we run this on every update
   // otherwise an outdated version of `drawLines()` is used
 
-  return <canvas ref={canvasRef} className={styles.canvas} />;
+  return (
+    <div className={styles.background}>
+      <canvas
+        ref={canvasRef}
+        width={width}
+        height={height}
+        className={styles.canvas}
+      />
+    </div>
+  );
 };
 
 export default Background;

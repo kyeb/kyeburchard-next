@@ -40,8 +40,3 @@ p {
 * {
   box-sizing: border-box;
 }
-
-.background {
-  position: absolute;
-  z-index: 0;
-}
