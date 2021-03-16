@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../styles/Background.module.css";
-import { initializeLines, updateLines, drawLines } from "./animation";
+import {
+  initializeLines,
+  updateLines,
+  drawLines,
+  updateDims,
+} from "./animation";
 
 const fps = 60;
 const interval = (1 / fps) * 1000; // ms
@@ -9,12 +14,13 @@ const Background = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // keep canvas sizing in sync with window dimensions
-  const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
 
   const updateWindowSize = () => {
-    setHeight(window.innerHeight);
     setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+    updateDims(window.innerWidth, window.innerHeight);
   };
 
   useEffect(() => {
@@ -24,7 +30,7 @@ const Background = () => {
 
   useEffect(() => {
     if (!canvasRef.current) return;
-    initializeLines(width, height);
+    initializeLines();
   }, [width, height]);
 
   useEffect(() => {
