@@ -61,6 +61,7 @@ const Background = () => {
       window.cancelAnimationFrame(animationFrameId);
     };
   });
+  // TODO: can we have deps?
   // no deps here guarantees we run this on every update
   // otherwise an outdated version of `drawLines()` is used
 

@@ -5,8 +5,7 @@ import Link from "next/link";
 import styles from "../styles/Layout.module.css";
 
 const pages = [
-  { name: "home", path: "/" },
-  { name: "about", path: "/about" },
+  { name: "about", path: "/" },
   { name: "projects", path: "/projects" },
   { name: "posts", path: "/posts" },
 ] as const;
@@ -42,13 +41,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         <div className={styles.leftContainer}>
           <nav className={styles.navContainer}>{pages.map(renderNavLink)}</nav>
         </div>
-        <main
-          className={`${styles.mainContainer} ${
-            props.currentPage === "home" && styles.hidden
-          }`}
-        >
-          <div className={styles.mainContent}>{props.children}</div>
-        </main>
+        <main className={styles.mainContainer}>{props.children}</main>
         <div className={styles.rightContainer}></div>
       </div>
     </>

@@ -52,23 +52,13 @@ const getRandomLine = (i: number): Line => {
   return { m, b };
 };
 
-const lineIsInteresting = (line: Line): boolean => {
-  return true;
-};
-
 export const updateDims = (width: number, height: number) => {
   w = width;
   h = height;
 };
 
 export const initializeLines = () => {
-  positions = Array.from({ length: numLines }, (v, i) => {
-    let line;
-    do {
-      line = getRandomLine(i);
-    } while (!lineIsInteresting(line));
-    return line;
-  });
+  positions = Array.from({ length: numLines }, (_, i) => getRandomLine(i));
 };
 
 export const updateLines = (width: number, height: number) => {
