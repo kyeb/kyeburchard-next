@@ -8,6 +8,7 @@ const pages = [
   { name: "about", path: "/" },
   { name: "projects", path: "/projects" },
   { name: "posts", path: "/posts" },
+  { name: "", path: "/empty" },
 ] as const;
 
 const pageNames = pages.map((el) => el.name);
@@ -41,7 +42,13 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         <div className={styles.leftContainer}>
           <nav className={styles.navContainer}>{pages.map(renderNavLink)}</nav>
         </div>
-        <main className={styles.mainContainer}>{props.children}</main>
+        <main
+          className={`${styles.mainContainer} ${
+            props.currentPage === "" && styles.hidden
+          }`}
+        >
+          {props.children}
+        </main>
         <div className={styles.rightContainer}></div>
       </div>
     </>

@@ -1,8 +1,8 @@
 interface Line {
   m: number; // slope
   b: number; // intercept
-  // deltaM: number;
-  // deltaB: number;
+  deltaM: number;
+  deltaB: number;
 }
 
 interface Points {
@@ -35,10 +35,10 @@ const lineToPoints = (l: Line): Points => {
 
 const isVisible = (l: Line) => {
   const { x0, y0, x1, y1 } = lineToPoints(l);
-  return true;
+  return (y0 > 0 && y0 < h) || (y1 > 0 && y1 < h);
 };
 
-const getRandomLine = (i: number): Line => {
+const getRandomLine = (i: number, oldLine?: Line): Line => {
   const k = numLines * 0.07; // no lines within 7% of vertical/horizontal
 
   // theta between ~0 and ~pi/2
@@ -48,8 +48,24 @@ const getRandomLine = (i: number): Line => {
   // solve for b at each corner on the non y-axis side (at w, 0 and w, h)
   const minIntercept = m > 0 ? -m * w : 0;
   const maxIntercept = m > 0 ? h : h - m * w;
-  const b = getRandomInt(minIntercept, maxIntercept);
-  return { m, b };
+  if (!oldLine) {
+    const b = getRandomInt(minIntercept, maxIntercept);
+    const deltaB = getRandomInt(-maxSpeed, maxSpeed);
+    const deltaM = 0;
+    return { m, b, deltaM, deltaB };
+  } else {
+    let b;
+    if (oldLine.deltaB > 0) {
+      b = minIntercept + 1;
+    } else {
+      b = maxIntercept - 1;
+    }
+    return { ...oldLine, m, b };
+  }
+};
+
+const updateLine = (l: Line): Line => {
+  return { ...l, m: l.m + l.deltaM, b: l.b + l.deltaB };
 };
 
 export const updateDims = (width: number, height: number) => {
@@ -64,11 +80,9 @@ export const initializeLines = () => {
 export const updateLines = (width: number, height: number) => {
   const newPositions: Line[] = positions.map((l, i) => {
     // off screen condition
-    let newLine;
+    let newLine = updateLine(l);
     if (!isVisible(l)) {
-      newLine = getRandomLine(i);
-    } else {
-      newLine = l;
+      newLine = getRandomLine(i, l);
     }
     return newLine;
   });

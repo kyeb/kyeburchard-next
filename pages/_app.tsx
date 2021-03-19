@@ -13,7 +13,7 @@ const MyApp = (props: AppProps) => {
   return (
     <>
       <Background />
-      <Component {...pageProps} />{" "}
+      <Component {...pageProps} />
     </>
   );
 };
