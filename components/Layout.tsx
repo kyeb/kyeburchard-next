@@ -22,10 +22,13 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = (props) => {
   const renderNavLink = (page: PageInfo) => {
     const isCurrent = props.currentPage === page.name;
+    const empty = page.name === "";
     return (
       <span
         key={page.name}
-        className={`${styles.navItem} ${isCurrent && styles.navItemCurrent}`}
+        className={`${styles.navItem} ${isCurrent && styles.navItemCurrent} ${
+          empty && styles.hidden
+        }`}
       >
         <Link href={`${page.path}`}>{page.name}</Link>
       </span>
@@ -49,7 +52,7 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
         >
           {props.children}
         </main>
-        <div className={styles.rightContainer}></div>
+        <div></div>
       </div>
     </>
   );

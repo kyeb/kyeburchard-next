@@ -3,10 +3,22 @@
   grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
 }
 
-.picContainer {
+@media (max-width: 599px) {
+  .grid {
+    grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
+  }
+}
+
+.picOuterContainer {
   display: flex;
   justify-content: center;
   grid-row-start: 2;
+}
+
+@media (max-width: 599px) {
+  .picContainer {
+    width: 50%;
+  }
 }
 
 .pic {

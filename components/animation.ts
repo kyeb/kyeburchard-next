@@ -14,7 +14,6 @@ interface Points {
 
 const numLines = 30;
 let positions: Line[] = [];
-const maxSpeed = 4;
 let w = 0;
 let h = 0;
 
@@ -68,6 +67,8 @@ const getRandomLine = (i: number, oldLine?: Line): Line => {
   const maxIntercept = m > 0 ? h : h - m * w;
   if (!oldLine) {
     const b = getRandomInt(minIntercept, maxIntercept);
+    // maxSpeed is based on screen dimensions for a more consistent feel across devices
+    const maxSpeed = Math.floor(Math.min(w, h) / 400);
     // compute a positive non-zero speed, then randomly negate it to avoid 0 velocity possibility
     let deltaB = getRandomInt(1, maxSpeed + 1);
     if (Math.floor(Math.random() * 2) == 0) deltaB *= -1;
