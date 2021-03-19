@@ -68,7 +68,9 @@ const getRandomLine = (i: number, oldLine?: Line): Line => {
   const maxIntercept = m > 0 ? h : h - m * w;
   if (!oldLine) {
     const b = getRandomInt(minIntercept, maxIntercept);
-    const deltaB = getRandomInt(-maxSpeed, maxSpeed);
+    // compute a positive non-zero speed, then randomly negate it to avoid 0 velocity possibility
+    let deltaB = getRandomInt(1, maxSpeed + 1);
+    if (Math.floor(Math.random() * 2) == 0) deltaB *= -1;
     const deltaM = 0;
     return { m, b, deltaM, deltaB };
   } else {
