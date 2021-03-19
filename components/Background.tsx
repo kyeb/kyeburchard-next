@@ -51,7 +51,7 @@ const Background = () => {
       lastRenderTime = currentTime;
       frameCount++;
 
-      updateLines(width, height);
+      updateLines();
       drawLines(context);
     };
     animationFrameId = window.requestAnimationFrame(redraw);
