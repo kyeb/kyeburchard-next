@@ -18,17 +18,19 @@ const About = () => {
       <div className={styles.content}>
         <p>
           I'm a recent grad from MIT (Course 6-2), a tech enthusiast, and an
-          optimist with a passion for learning. Recently, I've been working on
-          school projects and this website.
+          optimist with a passion for learning. Recently, I've been relaxing and
+          working on this website. I'm always looking for something new to
+          learn!
         </p>
         <p>
-          Soon, I'll be starting as a full time engineer at Stripe, optimizing
-          their dashboard performance!
+          Now, I'm working as a full-stack engineer at Stripe, optimizing
+          performance and handling frontend analytics across a massive React
+          application and Ruby backend.
         </p>
         <p>
           Previously, I led the Logistics team for HackMIT, served as treasurer,
-          then president, then WebTech chair of Maseeh Hall, MIT's largest dorm,
-          interned at Microsoft and Stripe, and worked as an undergrad
+          then president, then WebTech chair of Maseeh Hall (MIT's largest
+          dorm), interned at Microsoft and Stripe, and worked as an undergrad
           researcher at the MIT Media Lab.
         </p>
         <p>
