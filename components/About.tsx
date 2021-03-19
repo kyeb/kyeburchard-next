@@ -4,13 +4,15 @@ import styles from "../styles/About.module.css";
 const About = () => {
   return (
     <div className={styles.grid}>
-      <div className={styles.picContainer}>
-        <Image
-          className={styles.pic}
-          src="/kye-nyc.jpg"
-          width={200}
-          height={200}
-        />
+      <div className={styles.picOuterContainer}>
+        <div className={styles.picContainer}>
+          <Image
+            className={styles.pic}
+            src="/kye-nyc.jpg"
+            width={200}
+            height={200}
+          />
+        </div>
       </div>
       <div className={styles.intro}>
         <h1>Hey! I'm Kye.</h1>
