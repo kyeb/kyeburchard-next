@@ -14,7 +14,7 @@ interface Points {
 
 const numLines = 30;
 let positions: Line[] = [];
-const maxSpeed = 5;
+const maxSpeed = 4;
 let w = 0;
 let h = 0;
 
@@ -25,17 +25,35 @@ const getRandomInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
-const lineToPoints = (l: Line): Points => {
-  const x0 = 0;
-  const y0 = l.m * x0 + l.b;
-  const x1 = w;
-  const y1 = l.m * x1 + l.b;
-  return { x0, x1, y0, y1 };
+const lineToPoints = (l: Line, startWithX: boolean = true): Points => {
+  if (startWithX) {
+    // use y = m * x + b
+    const x0 = 0;
+    const x1 = w;
+    const y0 = l.m * x0 + l.b;
+    const y1 = l.m * x1 + l.b;
+    return { x0, x1, y0, y1 };
+  } else {
+    // use x = (y - b) / m
+    const y0 = 0;
+    const y1 = h;
+    const x0 = (y0 - l.b) / l.m;
+    const x1 = (y1 - l.b) / l.m;
+    return { x0, x1, y0, y1 };
+  }
 };
 
 const isVisible = (l: Line) => {
-  const { x0, y0, x1, y1 } = lineToPoints(l);
-  return (y0 > 0 && y0 < h) || (y1 > 0 && y1 < h);
+  // compute extremes in all 4 directions
+  const { y0, y1 } = lineToPoints(l);
+  const { x0, x1 } = lineToPoints(l, false);
+  // if any of the 4 are within the x/y limits of the screen, it's visible
+  return (
+    (y0 > 0 && y0 < h) ||
+    (y1 > 0 && y1 < h) ||
+    (x0 > 0 && x0 < w) ||
+    (x1 > 0 && x1 < w)
+  );
 };
 
 const getRandomLine = (i: number, oldLine?: Line): Line => {
@@ -77,11 +95,11 @@ export const initializeLines = () => {
   positions = Array.from({ length: numLines }, (_, i) => getRandomLine(i));
 };
 
-export const updateLines = (width: number, height: number) => {
+export const updateLines = () => {
   const newPositions: Line[] = positions.map((l, i) => {
     // off screen condition
     let newLine = updateLine(l);
-    if (!isVisible(l)) {
+    if (!isVisible(newLine)) {
       newLine = getRandomLine(i, l);
     }
     return newLine;
@@ -92,10 +110,10 @@ export const updateLines = (width: number, height: number) => {
 
 export const drawLines = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-  ctx.strokeStyle = "#ffffff";
+  ctx.strokeStyle = "white";
   ctx.lineWidth = 0.5;
   ctx.beginPath();
-  positions.forEach((l) => {
+  positions.forEach((l, i) => {
     const p = lineToPoints(l);
     ctx.moveTo(p.x0, p.y0);
     ctx.lineTo(p.x1, p.y1);
