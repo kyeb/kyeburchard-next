@@ -1,5 +1,7 @@
-import { CONTENT_REPO } from "../components/constants";
-import getContent, { ContentInfo } from "../components/content";
+import matter from "gray-matter";
+
+import { CONTENT_REPO } from "../lib/constants";
+import getContent, { ContentInfo } from "../lib/content";
 import Layout from "../components/Layout";
 import ProjectsList from "../components/projects/ProjectsList";
 
@@ -16,11 +18,14 @@ export interface ProjectInfo {
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props;
   // TODO: parse markdown matter for info
-  const parsedProjects = projects.map((project) => ({
-    icon: "todo",
-    content: project.content,
-    name: project.name,
-  }));
+  const parsedProjects = projects.map((project) => {
+    const parsed = matter(project.content);
+    return {
+      name: parsed.data.name,
+      icon: parsed.data.icon,
+      content: parsed.content,
+    };
+  });
   return (
     <Layout currentPage="projects">
       <ProjectsList projects={parsedProjects} />

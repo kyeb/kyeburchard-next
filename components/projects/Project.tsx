@@ -5,8 +5,7 @@ interface ProjectProps {
 }
 
 const Project = (props: ProjectProps) => {
-  const { info } = props;
-  const { name, content } = info;
+  const { name, content, icon } = props.info;
   return (
     <>
       {name.replace(".md", "")}
