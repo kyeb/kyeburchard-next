@@ -5,7 +5,7 @@ import {
   updateLines,
   drawLines,
   updateDims,
-} from "./animation";
+} from "../lib/animation";
 
 const fps = 60;
 const interval = (1 / fps) * 1000; // ms

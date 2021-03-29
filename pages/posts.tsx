@@ -1,5 +1,5 @@
-import { CONTENT_REPO } from "../components/constants";
-import getContent, { ContentInfo } from "../components/content";
+import { CONTENT_REPO } from "../lib/constants";
+import getContent, { ContentInfo } from "../lib/content";
 import Layout from "../components/Layout";
 
 interface PostsPageProps {
