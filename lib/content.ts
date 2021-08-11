@@ -1,19 +1,23 @@
+import { promises as fs } from 'fs';
+import path from 'path';
 import { CONTENT_REPO } from "./constants";
 
 export interface ContentInfo {
   name: string;
   content: string;
 }
+
 interface GitHubContentInfo {
   type: "file" | "dir" | "symlink";
   name: string;
   download_url: string;
 }
+
 interface GitHubError {
   message: string;
 }
 
-const getContent = async (
+const getGitHubContent = async (
   repo: string,
   dir: string
 ): Promise<ContentInfo[]> => {
@@ -39,10 +43,23 @@ const getContent = async (
   }));
 };
 
+const getLocalContent = async (dir: string): Promise<ContentInfo[]> => {
+  const contentDir = path.join(process.cwd(), 'content', dir);
+  const contentPaths = await fs.readdir(contentDir);
+
+  const contentPromises = contentPaths.map(async (fileName) => {
+    const filePath = path.join(contentDir, fileName);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    return { name: fileName, content: fileContent };
+  })
+
+  return Promise.all(contentPromises);
+}
+
 export const getProjects = async (): Promise<ContentInfo[]> => {
-  return getContent(CONTENT_REPO, 'projects');
+  return getLocalContent('projects');
 }
 
 export const getPosts = async () => {
-  return getContent(CONTENT_REPO, '');
+  return getLocalContent('posts');
 }
