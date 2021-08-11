@@ -1,5 +1,5 @@
 import { CONTENT_REPO } from "../lib/constants";
-import getContent, { ContentInfo } from "../lib/content";
+import { getPosts, ContentInfo } from "../lib/content";
 import Layout from "../components/Layout";
 
 interface PostsPageProps {
@@ -28,7 +28,7 @@ const PostsPage = (props: PostsPageProps) => {
 export const getStaticProps = async (): Promise<{
   props: PostsPageProps;
 }> => {
-  const content = await getContent(CONTENT_REPO, "test");
+  const content = await getPosts();
   return { props: { posts: content } };
 };
 

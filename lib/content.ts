@@ -1,3 +1,5 @@
+import { CONTENT_REPO } from "./constants";
+
 export interface ContentInfo {
   name: string;
   content: string;
@@ -37,4 +39,10 @@ const getContent = async (
   }));
 };
 
-export default getContent;
+export const getProjects = async (): Promise<ContentInfo[]> => {
+  return getContent(CONTENT_REPO, 'projects');
+}
+
+export const getPosts = async () => {
+  return getContent(CONTENT_REPO, '');
+}
