@@ -1,7 +1,6 @@
 import matter from "gray-matter";
 
-import { CONTENT_REPO } from "../lib/constants";
-import getContent, { ContentInfo } from "../lib/content";
+import { getProjects, ContentInfo } from "../lib/content";
 import Layout from "../components/Layout";
 import ProjectsList from "../components/projects/ProjectsList";
 
@@ -17,7 +16,6 @@ export interface ProjectInfo {
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props;
-  // TODO: parse markdown matter for info
   const parsedProjects = projects.map((project) => {
     const parsed = matter(project.content);
     return {
@@ -36,7 +34,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
 export const getStaticProps = async (): Promise<{
   props: ProjectsPageProps;
 }> => {
-  const content = await getContent(CONTENT_REPO, "projects");
+  const content = await getProjects();
   return { props: { projects: content } };
 };
 
