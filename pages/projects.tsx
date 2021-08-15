@@ -10,20 +10,23 @@ interface ProjectsPageProps {
 
 export interface ProjectInfo {
   name: string;
-  icon: string;
+  icon?: string;
   content: string;
+  order: number;
 }
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props;
-  const parsedProjects = projects.map((project) => {
-    const parsed = matter(project.content);
+  const parsedProjects = projects.map(({ content }) => {
+    const parsed = matter(content);
     return {
       name: parsed.data.name,
       icon: parsed.data.icon,
       content: parsed.content,
+      order: parsed.data.order,
     };
-  });
+  }).sort((a, b) => a.order - b.order);
+
   return (
     <Layout currentPage="projects">
       <ProjectsList projects={parsedProjects} />

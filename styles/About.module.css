@@ -3,6 +3,10 @@
   grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
 }
 
+.grid p {
+  padding: 0.3rem;
+}
+
 @media (max-width: 599px) {
   .grid {
     grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
