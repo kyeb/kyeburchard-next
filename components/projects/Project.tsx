@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import { ProjectInfo } from "../../pages/projects";
 import styles from "../../styles/ProjectsList.module.css";
+import contentStyles from "../../styles/Content.module.css";
 
 interface ProjectProps {
   info: ProjectInfo;
@@ -26,7 +27,9 @@ const Project = (props: ProjectProps) => {
         {icon && renderIcon(icon)}
         <h2>{name}</h2>
       </div>
-      <ReactMarkdown className={styles.projectDescription}>
+      <ReactMarkdown
+        className={`${styles.projectDescription} ${contentStyles.content}`}
+      >
         {content}
       </ReactMarkdown>
     </div>
