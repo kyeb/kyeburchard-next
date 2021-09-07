@@ -1,6 +1,8 @@
 :root {
   --dark: #282c34;
   --light: #efecf5;
+  --link: #4c74b9;
+  --link-underline: #beceeb;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,300&display=swap");
