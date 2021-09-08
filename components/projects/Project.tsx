@@ -11,9 +11,13 @@ const renderIcon = (icon: string) => {
   if (icon.startsWith("fa-")) {
     // Font Awesome icons
     return <i className={`fas ${icon}`} />;
-  } else if (icon.endsWith(".svg")) {
-    // SVG icons
-    return null;
+  } else if (icon.endsWith(".png") || icon.endsWith(".svg")) {
+    // SVG/PNG icons
+    return (
+      <div className={styles.projectIconImageContainer}>
+        <img className={styles.projectIconImage} src={`/icons/${icon}`} />
+      </div>
+    );
   } else {
     return null;
   }
@@ -22,7 +26,7 @@ const renderIcon = (icon: string) => {
 const Project = (props: ProjectProps) => {
   const { name, content, icon } = props.info;
   return (
-    <div className={styles.projectContainer}>
+    <div>
       <div className={styles.projectHeader}>
         {icon && renderIcon(icon)}
         <h2>{name}</h2>

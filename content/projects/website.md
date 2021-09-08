@@ -1,6 +1,6 @@
 ---
 name: website
-icon:
+icon: icons8-application-window-100.png
 order: 5
 ---
 
