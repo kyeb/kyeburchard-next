@@ -13,19 +13,25 @@ export interface ProjectInfo {
   icon?: string;
   content: string;
   order: number;
+  action: string;
+  url: string;
 }
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   const { projects } = props;
-  const parsedProjects = projects.map(({ content }) => {
-    const parsed = matter(content);
-    return {
-      name: parsed.data.name,
-      icon: parsed.data.icon,
-      content: parsed.content,
-      order: parsed.data.order,
-    };
-  }).sort((a, b) => a.order - b.order);
+  const parsedProjects = projects
+    .map(({ content }): ProjectInfo => {
+      const parsed = matter(content);
+      return {
+        name: parsed.data.name,
+        icon: parsed.data.icon,
+        content: parsed.content,
+        order: parsed.data.order,
+        action: parsed.data.action,
+        url: parsed.data.url,
+      };
+    })
+    .sort((a, b) => a.order - b.order);
 
   return (
     <Layout currentPage="projects">

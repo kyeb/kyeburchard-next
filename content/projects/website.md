@@ -2,6 +2,8 @@
 name: website
 icon: icons8-application-window-100.png
 order: 5
+action: browse the code
+url: https://github.com/kyeb/kyeburchard-next
 ---
 
 this website. yes, the one you're reading right now. yeah, i count it as a

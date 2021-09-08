@@ -2,11 +2,11 @@
 name: web.lab
 icon: weblab.svg
 order: 2
+action: watch my lectures
+url: https://youtube.com/playlist?list=PL0xuolWUmlBoLhKue65koAoJ_jX5JM8wi
 ---
 
-operations chair for web.lab, MIT's IAP intro web development course and competition.
+staff for [web.lab](https://weblab.mit.edu), MIT's IAP intro web development
+course and competition.
 
-check out [the course website](https://weblab.mit.edu); or my lectures [on
-React](https://youtu.be/vwfRskkdI5o), [advanced
-React](https://youtu.be/sRtnYO2Xrvk), and [web
-security](https://youtu.be/fcFlGT0iCtk)
+ran operations for the 300+ person course and gave ~5 lectures, in 2020 and 2021.
