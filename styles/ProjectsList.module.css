@@ -16,9 +16,6 @@
   padding-bottom: 1em;
 }
 
-.projectContainer {
-}
-
 .projectHeader {
   display: flex;
   justify-content: flex-start;
@@ -26,10 +23,14 @@
   gap: 0.5em;
 }
 
-.projectDescription {
-  /* padding-bottom: 2.5em; */
-}
-
 .projectDescription p {
   padding-bottom: 0.5em;
+}
+
+.projectIconImageContainer {
+  height: 1em;
+}
+
+.projectIconImage {
+  height: 100%;
 }
