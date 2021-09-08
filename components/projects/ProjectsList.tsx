@@ -9,7 +9,7 @@ interface ProjectsListProps {
 const ProjectsList = (props: ProjectsListProps) => {
   return (
     <>
-      <h1 className={styles.header}>stuff i have done</h1>
+      <h1 className={styles.header}>a few things i've worked on recently</h1>
       <div className={styles.grid}>
         {props.projects.map((project) => (
           <Project info={project} key={project.name} />

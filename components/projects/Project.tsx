@@ -24,18 +24,26 @@ const renderIcon = (icon: string) => {
 };
 
 const Project = (props: ProjectProps) => {
-  const { name, content, icon } = props.info;
+  const { name, content, icon, action, url } = props.info;
   return (
-    <div>
+    <div className={`${contentStyles.content} ${styles.projectContainer}`}>
       <div className={styles.projectHeader}>
         {icon && renderIcon(icon)}
         <h2>{name}</h2>
       </div>
-      <ReactMarkdown
-        className={`${styles.projectDescription} ${contentStyles.content}`}
-      >
-        {content}
-      </ReactMarkdown>
+      <div className={styles.projectDescriptionContainer}>
+        <ReactMarkdown className={styles.projectDescription}>
+          {content}
+        </ReactMarkdown>
+        {action && url && (
+          <div className={styles.projectAction}>
+            <a href={url} className={styles.projectActionLink}>
+              <div>{action}</div>
+              <i className="fas fa-arrow-right" />
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
