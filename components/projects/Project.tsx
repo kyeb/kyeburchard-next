@@ -32,9 +32,7 @@ const Project = (props: ProjectProps) => {
         <h2>{name}</h2>
       </div>
       <div className={styles.projectDescriptionContainer}>
-        <ReactMarkdown className={styles.projectDescription}>
-          {content}
-        </ReactMarkdown>
+        <ReactMarkdown>{content}</ReactMarkdown>
         {action && url && (
           <div className={styles.projectAction}>
             <a href={url} className={styles.projectActionLink}>
