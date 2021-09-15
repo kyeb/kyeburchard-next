@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "../styles/About.module.css";
 
 const About = () => {
@@ -6,7 +5,7 @@ const About = () => {
     <div className={styles.grid}>
       <div className={styles.picOuterContainer}>
         <div className={styles.picContainer}>
-          <Image
+          <img
             className={styles.pic}
             src="/kye-nyc.jpg"
             width={200}
