@@ -52,7 +52,7 @@ const About = () => {
         <a className={styles.link} href="mailto:kyeb@mit.edu">
           <i className="fas fa-envelope" />
         </a>
-        <a className={styles.link} href="/resume_kye.pdf">
+        <a className={styles.link} href="/kyeb_resume.pdf">
           <i className="fas fa-file-alt" />
         </a>
       </div>
