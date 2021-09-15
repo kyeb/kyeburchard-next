@@ -1,4 +1,4 @@
-/* Hyperlink styling for in-content */
+/* Shared styles for content across the site */
 
 /* https://www.webfx.com/blog/web-design/hyperlink-design/ */
 .content a {
@@ -10,4 +10,8 @@
 
 .content a:hover {
   border-bottom: 1px solid var(--link);
+}
+
+.content p {
+  padding-bottom: 0.5em;
 }

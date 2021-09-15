@@ -1,6 +1,8 @@
-import { CONTENT_REPO } from "../lib/constants";
+import matter from "gray-matter";
+
 import { getPosts, ContentInfo } from "../lib/content";
 import Layout from "../components/Layout";
+import PostList from "../components/posts/PostList";
 
 interface PostsPageProps {
   posts: ContentInfo[];
@@ -8,20 +10,31 @@ interface PostsPageProps {
 
 export interface PostInfo {
   name: string;
-  image: string;
+  title: string;
+  excerpt?: string;
+  date: Date;
   content: string;
 }
 
 const PostsPage = (props: PostsPageProps) => {
   const { posts } = props;
-  // TODO: parse markdown matter for info
-  const parsedPosts = posts.map((post) => ({
-    icon: "todo",
-    content: post.content,
-    name: post.name,
-  }));
+  const parsedProjects = posts
+    .map(({ name, content }): PostInfo => {
+      const parsed = matter(content);
+      return {
+        name,
+        content: parsed.content,
+        excerpt: parsed.data.excerpt,
+        title: parsed.data.title,
+        date: parsed.data.date,
+      };
+    })
+    .sort((a, b) => b.date.getTime() - a.date.getTime());
+
   return (
-    <Layout currentPage="posts">{/* <Posts posts={parsedPosts} /> */}</Layout>
+    <Layout currentPage="posts">
+      <PostList posts={parsedProjects} />
+    </Layout>
   );
 };
 
