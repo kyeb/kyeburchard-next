@@ -1,0 +1,20 @@
+- hosts: juniper
+  environment:
+    PATH: /home/kyeb/.nvm/versions/node/v14.2.0/bin:{{ ansible_env.PATH }}
+  remote_user: kyeb
+
+  tasks:
+    - name: get latest version from github
+      git:
+        repo: ssh://git@github.com/kyeb/kyeburchard-next.git
+        version: main
+        dest: /srv/kyeburchard-next
+
+    - name: update dependencies
+      yarn:
+        path: /srv/kyeburchard-next
+
+    - name: rebuild client
+      shell: "yarn build"
+      args:
+        chdir: /srv/kyeburchard-next
