@@ -19,14 +19,15 @@ const About = () => {
       </div>
       <div className={styles.content}>
         <p>
-          I'm a recent grad from MIT (Course 6-2), a tech enthusiast, and an
+          I'm a recent grad from MIT (course 6-2), a tech enthusiast, and an
           optimist with a passion for learning. Recently, I've been relaxing and
           working on this website. I'm always looking for something new to
           learn!
         </p>
         <p>
           Now, I'm working as a full-stack engineer at Stripe, optimizing
-          performance and handling frontend analytics across a massive React
+          performance, handling frontend analytics, driving migrations, and
+          working on other platform-shaped problems across a massive React
           application and Ruby backend.
         </p>
         <p>
