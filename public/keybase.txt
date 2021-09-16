@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/kyeb
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://kyeburchard.com
+  * I am kyeb (https://keybase.io/kyeb) on keybase.
+  * I have a public key ASBGaiNyvBRrKLbc_oQAT3SDcvSKFQZMqsTMvkGU5sONaQo
+
+To do so, I am signing this object:
+
+{
+  body: {
+    key: {
+      eldest_kid: 0120466a2372bc146b28b6dcfe84004f748372f48a15064caac4ccbe4194e6c38d690a,
+      host: keybase.io,
+      kid: 0120466a2372bc146b28b6dcfe84004f748372f48a15064caac4ccbe4194e6c38d690a,
+      uid: 46b03013d87145f5161ad9039969ec19,
+      username: kyeb
+    },
+    merkle_root: {
+      ctime: 1588786473,
+      hash: 659abcdb4f1b7959744d933bfe1cdd4ca074e4854c0fcdaa85359d87cd3edc2a5868aa553d6b06b2998ccbeccb30f981bc9574dbf13ece7be4a99b39c0579b38,
+      hash_meta: 5e5bc5e478248c793c0873e7ea4484a677e8b7e07f68e7e8537c1919be4b1ef9,
+      seqno: 16181143
+    },
+    service: {
+      entropy: c1MdI7TXh8eEUdrGyORbrtgx,
+      hostname: kyeburchard.com,
+      protocol: https:
+    },
+    type: web_service_binding,
+    version: 2
+  },
+  client: {
+    name: keybase.io go client,
+    version: 5.4.2
+  },
+  ctime: 1588786528,
+  expire_in: 504576000,
+  prev: 689069715f3064d42860e2589af7f66f48806879fff27b67a91b0af56a5e04f4,
+  seqno: 12,
+  tag: signature
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgRmojcrwUayi23P6EAE90g3L0ihUGTKrEzL5BlObDjWkKp3BheWxvYWTESpcCDMQgaJBpcV8wZNQoYOJYmvf2b0iAaHn/8ntnqRsK9WpeBPTEIOPD877lF8DlFaoXcWpQ/76+/nq2o5XbHp3HHD9zKkXBAgHCo3NpZ8RAXba8WYCSioLoHmIeYgDGGOpqFHWc/sgOTA3trc+q+HWq2/Th+2csgRRW+UGcTlz6EaFA3yb1M/3Mc+1Q7XdnCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHqe4ssMqGQuQEro/pWpbSaKkobSJWbZfe/SZcqgdGOfo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/kyeb
+
+==================================================================
