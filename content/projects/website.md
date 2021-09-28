@@ -1,7 +1,7 @@
 ---
 name: website
 icon: icons8-application-window-100.png
-order: 5
+order: 100
 action: browse the code
 url: https://github.com/kyeb/kyeburchard-next
 ---
