@@ -1,7 +1,7 @@
 ---
 name: hackmit 2018
 icon: hackmit2018.svg
-order: 5
+order: 6
 action: admire the parallax
 url: https://archive.hackmit.org/2018/
 ---
