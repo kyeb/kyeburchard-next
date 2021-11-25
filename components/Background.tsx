@@ -17,11 +17,25 @@ const Background = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  const [running, setRunning] = useState(true);
+
   const updateWindowSize = () => {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
     updateDims(window.innerWidth, window.innerHeight);
   };
+
+  const handleKeypress = (e) => {
+    switch (e.code) {
+      case "Space":
+        setRunning(!running);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeypress);
+    return () => document.removeEventListener("keydown", handleKeypress);
+  }, [running]);
 
   useEffect(() => {
     updateWindowSize();
@@ -54,7 +68,7 @@ const Background = () => {
       updateLines();
       drawLines(context);
     };
-    animationFrameId = window.requestAnimationFrame(redraw);
+    if (running) animationFrameId = window.requestAnimationFrame(redraw);
 
     // cleanup
     return () => {
