@@ -25,7 +25,7 @@ const Background = () => {
     updateDims(window.innerWidth, window.innerHeight);
   };
 
-  const handleKeypress = (e) => {
+  const handleKeypress = (e: KeyboardEvent) => {
     switch (e.code) {
       case "Space":
         setRunning(!running);
