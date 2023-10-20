@@ -8,8 +8,8 @@ const About = () => {
           <img
             className={styles.pic}
             src="/kye-nyc.jpg"
-            width={200}
-            height={200}
+            width={"100%"}
+            height={"100%"}
           />
         </div>
       </div>

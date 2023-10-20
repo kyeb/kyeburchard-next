@@ -19,9 +19,13 @@
   grid-row-start: 2;
 }
 
+.picContainer {
+  width: 20%;
+}
+
 @media (max-width: 599px) {
   .picContainer {
-    width: 50%;
+    width: 60%;
   }
 }
 
