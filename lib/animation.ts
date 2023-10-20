@@ -70,7 +70,8 @@ const getRandomLine = (i: number, oldLine?: Line): Line => {
     // maxSpeed is based on screen dimensions for a more consistent feel across devices
     const maxSpeed = Math.floor(Math.min(w, h) / 400);
     // compute a positive non-zero speed, then randomly negate it to avoid 0 velocity possibility
-    let deltaB = getRandomInt(1, maxSpeed + 1);
+    // TODO: re-reading this years after writing it, it seems like this could be simplified a lot...
+    let deltaB = getRandomInt(1, maxSpeed + 1) * 0.5;
     if (Math.floor(Math.random() * 2) == 0) deltaB *= -1;
     const deltaM = 0;
     return { m, b, deltaM, deltaB };
