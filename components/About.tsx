@@ -18,28 +18,29 @@ const About = () => {
       </div>
       <div className={styles.content}>
         <p>
-          I'm a recent grad from MIT (course 6-2), a tech enthusiast, and an
-          optimist with a passion for learning. Recently, I've been relaxing and
-          working on this website. I'm always looking for something new to
-          learn!
+          I'm currently a senior engineer at Stripe, running a high-throughput
+          service with an SLO of 99.9999% uptime and building the
+          next-generation API platform for building scalable, performant, and
+          reliable REST and GraphQL APIs on top of Protobuf.
         </p>
         <p>
-          Now, I'm working as a full-stack engineer at Stripe, optimizing
-          performance, handling frontend analytics, driving migrations, and
+          Before that, I was a full-stack engineer, optimizing performance,
+          pushing the boundaries of reliability, driving code quality, and
           working on other platform-shaped problems across a massive React
-          application and Ruby backend.
+          application and Ruby backend. I'm a recent graduate from MIT (course
+          6-2), a tech enthusiast, and an optimist with a passion for learning.
         </p>
         <p>
-          Previously, I led the Logistics team for HackMIT, served as treasurer,
-          then president, then WebTech chair of Maseeh Hall (MIT's largest
-          dorm), interned at Microsoft and Stripe, and worked as an undergrad
-          researcher at the MIT Media Lab.
+          Previously, I led the Logistics team for a 1500 person hackathon
+          (HackMIT), served as treasurer, then president, then tech chair of
+          Maseeh Hall (MIT's largest dorm), interned at Microsoft and Stripe,
+          and worked as an undergrad researcher at the MIT Media Lab.
         </p>
         <p>
           I love being outdoors whenever I can find time — whether that means
-          skiing, mountain biking, and hiking, exploring whatever area I'm
-          living in, or just finding a spot outside to walk or sit down with a
-          good book/podcast.
+          skiing at Arapahoe Basin, gravel bikepacking along the coastline, or
+          backpacking in the Sierras, exploring whatever area I'm living in, or just finding a
+          spot outside to walk or sit down with a good book/podcast.
         </p>
       </div>
       <div className={styles.links}>
