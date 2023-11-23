@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, PropsWithChildren } from "react";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -15,9 +15,9 @@ const pageNames = pages.map((el) => el.name);
 type PageInfo = typeof pages[number];
 type Page = typeof pageNames[number];
 
-interface LayoutProps {
+type LayoutProps = PropsWithChildren<{
   currentPage: Page;
-}
+}>;
 
 const Layout: FunctionComponent<LayoutProps> = (props) => {
   const renderNavLink = (page: PageInfo) => {
@@ -26,9 +26,8 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
     return (
       <span
         key={page.name}
-        className={`${styles.navItem} ${isCurrent && styles.navItemCurrent} ${
-          empty && styles.hidden
-        }`}
+        className={`${styles.navItem} ${isCurrent && styles.navItemCurrent} ${empty && styles.hidden
+          }`}
       >
         <Link href={`${page.path}`}>{page.name}</Link>
       </span>
@@ -46,9 +45,8 @@ const Layout: FunctionComponent<LayoutProps> = (props) => {
           <nav className={styles.navContainer}>{pages.map(renderNavLink)}</nav>
         </div>
         <main
-          className={`${styles.mainContainer} ${
-            props.currentPage === "" && styles.hidden
-          }`}
+          className={`${styles.mainContainer} ${props.currentPage === "" && styles.hidden
+            }`}
         >
           {props.children}
         </main>
