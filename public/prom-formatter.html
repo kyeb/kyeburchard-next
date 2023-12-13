@@ -9,11 +9,14 @@
 				go.run(result.instance);
 			});
 
-                        function prettyQuery() {
-                          var v = document.getElementById("query").value
-                          var r = prettyPromQL(v);
-                          document.getElementById("pretty").value = r;
-                        }
+      const var1 = "$__rate_interval";
+      const sentinel1 = "4242m";
+
+      function prettyQuery() {
+        var v = document.getElementById("query").value.replaceAll(var1, sentinel1);
+        var r = prettyPromQL(v);
+        document.getElementById("pretty").value = r.replaceAll(sentinel1, var1);
+      }
 		</script>
 	</head>
 
