@@ -14,8 +14,16 @@
 
       function prettyQuery() {
         var v = document.getElementById("query").value.replaceAll(var1, sentinel1);
-        var r = prettyPromQL(v);
-        document.getElementById("pretty").value = r.replaceAll(sentinel1, var1);
+        var r = prettyPromQL(v).replaceAll(sentinel1, var1);
+        document.getElementById("pretty").value = r;
+      }
+
+      function copyPretty() {
+        var p = document.getElementById("pretty").value;
+        navigator.clipboard.writeText(p);
+        var t = document.getElementById("toast");
+        t.classList.remove("hidden");
+        setTimeout(() => t.classList.add("hidden"), 1000);
       }
 		</script>
 	</head>
@@ -24,7 +32,7 @@
     <div class="grid grid-cols-9 gap-4 m-4 h-fit">
       <div class="col-span-4">
         <pre>
-          <textarea id="query" rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PromQL here..."></textarea>
+          <textarea id="query" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PromQL here..."></textarea>
         </pre>
       </div>
 
@@ -34,10 +42,17 @@
 
       <div class="col-span-4">
         <pre>
-          <textarea id="pretty" disabled rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Formatted here..."></textarea>
+          <textarea id="pretty" disabled class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Formatted here...">bleh</textarea>
         </pre>
+        <div class="flex place-content-center">
+          <button type="button" onclick="copyPretty()" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">copy</button>
+        </div>
       </div>
     </div>
+
+    <div id="toast" class="hidden fixed flex items-center w-20 max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x rtl:divide-x-reverse divide-gray-200 rounded-lg shadow top-5 right-5 dark:text-gray-400 dark:divide-gray-700 space-x dark:bg-gray-800" role="alert">
+      <div class="text-sm font-normal">copied!</div>
+  </div>
   </body>
 </html>
 
