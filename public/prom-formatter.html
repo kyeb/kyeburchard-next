@@ -12,7 +12,7 @@
                         function prettyQuery() {
                           var v = document.getElementById("query").value
                           var r = prettyPromQL(v);
-                          document.querySelector("#pretty").value = r;
+                          document.getElementById("pretty").value = r;
                         }
 		</script>
 	</head>
@@ -21,7 +21,7 @@
     <div class="grid grid-cols-9 gap-4 m-4 h-fit">
       <div class="col-span-4">
         <pre>
-          <textarea id="message" rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PromQL here..."></textarea>
+          <textarea id="query" rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PromQL here..."></textarea>
         </pre>
       </div>
 
