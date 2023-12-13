@@ -1,5 +1,6 @@
 <html>
 	<head>
+    <script src="https://cdn.tailwindcss.com"></script>
 		<meta charset="utf-8"/>
 		<script src="wasm_exec.js"></script>
 		<script>
@@ -11,16 +12,29 @@
                         function prettyQuery() {
                           var v = document.getElementById("query").value
                           var r = prettyPromQL(v);
-                          document.getElementById("pretty").innerText = r;
+                          document.querySelector("#pretty").value = r;
                         }
 		</script>
 	</head>
+
 	<body>
-          <div>Put something here</div>
-          <textarea id="query"></textarea>
-          <button type="button" onclick="prettyQuery()">Pretty Me</button>
+    <div class="grid grid-cols-9 gap-4 m-4 h-fit">
+      <div class="col-span-4">
+        <pre>
+          <textarea id="message" rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="PromQL here..."></textarea>
+        </pre>
+      </div>
 
-          <pre id="pretty"></pre>
+      <div class="col-span-1 flex justify-center items-center">
+        <button type="button" onclick="prettyQuery()" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center h-min">prettify →</button>
+      </div>
 
-        </body>
+      <div class="col-span-4">
+        <pre>
+          <textarea id="pretty" disabled rows="4" class="block p-2.5 w-full h-96 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Formatted here..."></textarea>
+        </pre>
+      </div>
+    </div>
+  </body>
 </html>
+
