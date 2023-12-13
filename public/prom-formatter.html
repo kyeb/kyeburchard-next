@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="wasm_exec.js"></script>
+		<script>
+			const go = new Go();
+			WebAssembly.instantiateStreaming(fetch("pretty.wasm"), go.importObject).then((result) => {
+				go.run(result.instance);
+			});
+
+                        function prettyQuery() {
+                          var v = document.getElementById("query").value
+                          var r = prettyPromQL(v);
+                          document.getElementById("pretty").innerText = r;
+                        }
+		</script>
+	</head>
+	<body>
+          <div>Put something here</div>
+          <textarea id="query"></textarea>
+          <button type="button" onclick="prettyQuery()">Pretty Me</button>
+
+          <pre id="pretty"></pre>
+
+        </body>
+</html>
