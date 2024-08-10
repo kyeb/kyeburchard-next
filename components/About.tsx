@@ -18,10 +18,10 @@ const About = () => {
       </div>
       <div className={styles.content}>
         <p>
-          I'm currently a senior engineer at Stripe, running a high-throughput
+          I'm currently a staff engineer at Stripe, running a high-throughput
           service with an SLO of 99.9999% uptime and building the
           next-generation API platform for building scalable, performant, and
-          reliable REST and GraphQL APIs on top of Protobuf.
+          reliable REST and GraphQL APIs.
         </p>
         <p>
           Before that, I was a full-stack engineer, optimizing performance,
@@ -38,9 +38,10 @@ const About = () => {
         </p>
         <p>
           I love being outdoors whenever I can find time — whether that means
-          skiing at Arapahoe Basin, gravel bikepacking along the coastline, or
-          backpacking in the Sierras, exploring whatever area I'm living in, or just finding a
-          spot outside to walk or sit down with a good book/podcast.
+          skiing at Arapahoe Basin, gravel bikepacking along the California
+          coastline, backpacking the John Muir Trail, exploring wherever I
+          happen to be at the moment, or just finding a spot outside to walk or
+          chill with a good book or podcast.
         </p>
       </div>
       <div className={styles.links}>

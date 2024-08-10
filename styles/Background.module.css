@@ -2,10 +2,3 @@
   position: fixed;
   z-index: 0;
 }
-
-.canvas {
-  /* for some reason, canvas overflows without this */
-  display: block;
-  /* width: 100vw; */
-  /* height: 100vh; */
-}

@@ -115,7 +115,7 @@ export const updateLines = () => {
 export const drawLines = (ctx: CanvasRenderingContext2D) => {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   ctx.strokeStyle = "white";
-  ctx.lineWidth = 0.5;
+  ctx.lineWidth = 0.5 * window.devicePixelRatio;
   ctx.beginPath();
   positions.forEach((l, i) => {
     const p = lineToPoints(l);

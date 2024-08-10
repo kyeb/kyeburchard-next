@@ -20,9 +20,23 @@ const Background = () => {
   const [running, setRunning] = useState(true);
 
   const updateWindowSize = () => {
-    setWidth(window.innerWidth);
-    setHeight(window.innerHeight);
-    updateDims(window.innerWidth, window.innerHeight);
+    // Taken from https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas#scaling_for_high_resolution_displays
+    const dpr = window.devicePixelRatio;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    // const rect = canvas.getBoundingClientRect();
+    // if (!rect) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.scale(dpr, dpr);
+    console.log(dpr);
+
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${window.innerHeight}px`;
+    setWidth(window.innerWidth * dpr);
+    setHeight(window.innerHeight * dpr);
+    updateDims(window.innerWidth * dpr, window.innerHeight * dpr);
   };
 
   const handleKeypress = (e: KeyboardEvent) => {
