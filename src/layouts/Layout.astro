@@ -1,0 +1,55 @@
+---
+interface Props {
+  currentPage: 'about' | 'projects' | 'posts' | '';
+}
+
+const { currentPage } = Astro.props;
+
+const pages = [
+  { name: 'about', path: '/' },
+  { name: 'projects', path: '/projects' },
+  { name: 'posts', path: '/posts' },
+] as const;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kye Burchard</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="background">
+      <canvas id="background-canvas"></canvas>
+    </div>
+    <div class="layout-grid">
+      <div class="left-container">
+        <nav class="nav-container">
+          {pages.map((page) => (
+            <span class:list={['nav-item', { 'nav-item-current': currentPage === page.name }]}>
+              <a href={page.path}>{page.name}</a>
+            </span>
+          ))}
+        </nav>
+      </div>
+      <main class="main-container">
+        <slot />
+      </main>
+      <div></div>
+    </div>
+    <script src="../scripts/background.ts"></script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/globals.css';
+  @import '../styles/fontawesome-all.css';
+</style>

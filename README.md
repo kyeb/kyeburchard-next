@@ -1,5 +1,23 @@
-# kyeburchard-next
+# kyeburchard
 
-My personal website. Built with Next.js as an experiment to learn how a new framework works.
+My personal website. Built with [Astro](https://astro.build) for ultra-fast static site generation with zero JavaScript runtime by default.
 
-The code for the previous iteration can be found [here](https://github.com/kyeb/kyeburchard), although it is no longer served anywhere.
+## Development
+
+```bash
+pnpm install
+pnpm dev
+```
+
+## Build
+
+```bash
+pnpm build
+```
+
+Output goes to `dist/`.
+
+## Previous iterations
+
+- [Next.js version](https://github.com/kyeb/kyeburchard-next) (main branch, pre-Astro migration)
+- [Static HTML/SCSS version](https://github.com/kyeb/kyeburchard)
