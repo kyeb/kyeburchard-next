@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  excerpt?: string;
+}
+
+const { title, date, excerpt } = Astro.props;
+---
+
+<div class="post">
+  <h1>{title}</h1>
+  {excerpt && <h2>{excerpt}</h2>}
+  <p class="post-date">{date.toDateString()}</p>
+  <div class="content">
+    <slot />
+  </div>
+</div>

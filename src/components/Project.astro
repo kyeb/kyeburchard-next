@@ -1,0 +1,44 @@
+---
+interface Props {
+  name: string;
+  icon?: string;
+  action?: string;
+  url?: string;
+}
+
+const { name, icon, action, url } = Astro.props;
+
+const renderIcon = (icon: string) => {
+  if (icon.startsWith('fa-')) {
+    return { type: 'fa', class: `fas ${icon}` };
+  } else if (icon.endsWith('.png') || icon.endsWith('.svg')) {
+    return { type: 'image', src: `/icons/${icon}` };
+  }
+  return null;
+};
+
+const iconData = icon ? renderIcon(icon) : null;
+---
+
+<div class="content project-container">
+  <div class="project-header">
+    {iconData?.type === 'fa' && <i class={iconData.class}></i>}
+    {iconData?.type === 'image' && (
+      <div class="project-icon-image-container">
+        <img class="project-icon-image" src={iconData.src} alt="" />
+      </div>
+    )}
+    <h2>{name}</h2>
+  </div>
+  <div class="project-description-container">
+    <slot />
+    {action && url && (
+      <div class="project-action">
+        <a href={url} class="project-action-link">
+          <div>{action}</div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    )}
+  </div>
+</div>

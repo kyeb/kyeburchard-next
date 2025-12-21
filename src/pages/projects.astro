@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Project from '../components/Project.astro';
+
+const projects = await getCollection('projects');
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+
+const projectsWithContent = await Promise.all(
+  sortedProjects.map(async (project) => {
+    const { Content } = await render(project);
+    return { project, Content };
+  })
+);
+---
+
+<Layout currentPage="projects">
+  <h1 class="projects-header">a few things i've worked on over the years</h1>
+  <div class="projects-grid">
+    {projectsWithContent.map(({ project, Content }) => (
+      <Project
+        name={project.data.name}
+        icon={project.data.icon}
+        action={project.data.action}
+        url={project.data.url}
+      >
+        <Content />
+      </Project>
+    ))}
+  </div>
+</Layout>
