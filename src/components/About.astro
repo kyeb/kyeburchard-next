@@ -1,11 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import profilePic from '../assets/kye-nyc.jpg';
 ---
 
 <div class="about-grid">
   <div class="pic-outer-container">
     <div class="pic-container">
-      <img class="pic" src="/kye-nyc.jpg" width="100%" height="100%" alt="Kye Burchard" />
+      <Image class="pic" src={profilePic} alt="Kye Burchard" loading="eager" />
     </div>
   </div>
   <div class="intro">
@@ -13,15 +15,13 @@ import { Icon } from 'astro-icon/components';
   </div>
   <div class="about-content">
     <p>
-      I'm currently a staff engineer at Stripe, running a high-throughput service with an SLO of
-      99.9999% uptime and building the next-generation API platform for building scalable,
-      performant, and reliable REST and GraphQL APIs.
+      I'm working on <a href="https://falconer.com">Falconer</a>, the next generation of knowledge
+      tooling for engineers.
     </p>
     <p>
-      Before that, I was a full-stack engineer, optimizing performance, pushing the boundaries of
-      reliability, driving code quality, and working on other platform-shaped problems across a
-      massive React application and Ruby backend. I'm a recent graduate from MIT (course 6-2), a
-      tech enthusiast, and an optimist with a passion for learning.
+      Before that, I was a staff engineer at Stripe, running a high-throughput service with an SLO
+      of 99.9999% uptime and building the next-generation API platform for building scalable,
+      performant, and reliable REST and GraphQL APIs.
     </p>
     <p>
       Previously, I led the Logistics team for a 1500 person hackathon (HackMIT), served as
@@ -36,16 +36,16 @@ import { Icon } from 'astro-icon/components';
     </p>
   </div>
   <div class="social-links">
-    <a class="social-link" href="https://github.com/kyeb/">
+    <a class="social-link" href="https://github.com/kyeb/" aria-label="GitHub">
       <Icon name="tabler:brand-github" size={24} />
     </a>
-    <a class="social-link" href="https://twitter.com/kyeburchard">
+    <a class="social-link" href="https://twitter.com/kyeburchard" aria-label="Twitter">
       <Icon name="tabler:brand-twitter" size={24} />
     </a>
-    <a class="social-link" href="mailto:kyeb@mit.edu">
+    <a class="social-link" href="mailto:kyeb@mit.edu" aria-label="Email">
       <Icon name="tabler:mail" size={24} />
     </a>
-    <a class="social-link" href="/kyeb_resume.pdf">
+    <a class="social-link" href="/kyeb_resume.pdf" aria-label="Resume">
       <Icon name="tabler:file-text" size={24} />
     </a>
   </div>

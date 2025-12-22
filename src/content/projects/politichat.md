@@ -1,7 +1,7 @@
 ---
 name: politichat
-icon: fa-video
-order: 1
+icon: tabler:video
+date: 2024-01-09
 action: try it out
 url: https://politichat.kyeburchard.com
 ---

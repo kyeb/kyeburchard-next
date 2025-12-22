@@ -1,7 +1,7 @@
 ---
 name: pierogoids
-icon: fa-utensils
-order: 4
+icon: tabler:tools-kitchen-2
+date: 2021-08-08
 action: check out the report
 url: /pierogi.pdf
 ---

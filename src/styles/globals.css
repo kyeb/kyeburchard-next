@@ -154,6 +154,9 @@ h1 {
 
 .pic {
   border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .intro {
@@ -167,6 +170,17 @@ h1 {
 .about-content {
   grid-row-start: 6;
   font-size: 1.1rem;
+}
+
+.about-content a {
+  text-decoration: none;
+  color: var(--link);
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--link-underline);
+}
+
+.about-content a:hover {
+  border-bottom: 1px solid var(--link);
 }
 
 .social-links {
@@ -226,10 +240,15 @@ h1 {
 
 .project-icon-image-container {
   height: 1em;
+  display: flex;
+  align-items: center;
+  line-height: 0;
 }
 
 .project-icon-image {
   height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .project-action {
