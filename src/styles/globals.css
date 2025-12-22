@@ -1,0 +1,276 @@
+:root {
+  --dark: #282c34;
+  --light: #efecf5;
+  --link: #4c74b9;
+  --link-underline: #beceeb;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  background-color: var(--dark);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-weight: 300;
+}
+
+h1 {
+  font-size: 2.2rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Background canvas */
+.background {
+  position: fixed;
+  z-index: 0;
+}
+
+/* Layout */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 50% 1fr;
+  grid-template-rows: 5vh auto 1fr;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 599px) {
+  .layout-grid {
+    grid-template-columns: 1fr 90% 1fr;
+    grid-template-rows: 3.5rem auto 3rem;
+  }
+}
+
+.left-container {
+  display: grid;
+  grid-template-columns: 5vw auto 1fr;
+  grid-template-rows: 20vh auto 1fr;
+}
+
+@media (max-width: 599px) {
+  .left-container {
+    display: block;
+    grid-row-start: 1;
+    grid-column-start: 2;
+  }
+}
+
+.nav-container {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: white;
+}
+
+@media (max-width: 599px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+    align-items: center;
+  }
+}
+
+.nav-item-current {
+  font-weight: 400;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}
+
+.main-container {
+  padding: 6%;
+  background-color: var(--light);
+  grid-column-start: 2;
+  grid-row-start: 2;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* About page */
+.about-grid {
+  display: grid;
+  grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
+}
+
+.about-grid p {
+  padding: 0.3rem;
+}
+
+@media (max-width: 599px) {
+  .about-grid {
+    grid-template-rows: 5vh auto 5vh auto 5vh auto 5vh auto 5vh;
+  }
+}
+
+.pic-outer-container {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 2;
+}
+
+.pic-container {
+  width: 20%;
+}
+
+@media (max-width: 599px) {
+  .pic-container {
+    width: 60%;
+  }
+}
+
+.pic {
+  border-radius: 50%;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  grid-row-start: 4;
+  font-weight: 300;
+  align-items: center;
+}
+
+.about-content {
+  grid-row-start: 6;
+  font-size: 1.1rem;
+}
+
+.social-links {
+  grid-row-start: 8;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.social-link {
+  transition: 0.2s;
+}
+
+.social-link:hover {
+  color: grey;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5em;
+}
+
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects-header {
+  font-weight: 300;
+  font-size: 2rem;
+  padding-bottom: 3rem;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-description-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-header {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 0.5em;
+  padding-bottom: 0.3rem;
+}
+
+.project-icon-image-container {
+  height: 1em;
+}
+
+.project-icon-image {
+  height: 100%;
+}
+
+.project-action {
+  display: flex;
+  justify-content: center;
+}
+
+.project-action-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+/* Posts */
+.post h1 {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.post h2 {
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+}
+
+.post-date {
+  font-style: italic;
+  padding-bottom: 1rem;
+}
+
+/* Shared content styles */
+.content a {
+  text-decoration: none;
+  color: var(--link);
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--link-underline);
+}
+
+.content a:hover {
+  border-bottom: 1px solid var(--link);
+}
+
+.content p {
+  padding-bottom: 0.5em;
+}

@@ -1,0 +1,9 @@
+tunnel: oak
+credentials-file: /etc/cloudflared/10d2808c-f6fd-4fdd-87d2-b405855368dc.json
+
+ingress:
+  - hostname: oak.kyeb.com
+    service: http://localhost:80
+  - hostname: astro.kyeb.com
+    service: http://localhost:80
+  - service: http_status:404
