@@ -1,7 +1,7 @@
 ---
 name: fpga-overcooked
-icon: fa-gamepad
-order: 3
+icon: tabler:device-gamepad-2
+date: 2021-08-09
 action: see the report
 url: /overcooked.pdf
 ---

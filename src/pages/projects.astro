@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Project from '../components/Project.astro';
 
 const projects = await getCollection('projects');
-const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+const sortedProjects = projects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 const projectsWithContent = await Promise.all(
   sortedProjects.map(async (project) => {
@@ -17,12 +17,13 @@ const projectsWithContent = await Promise.all(
 <Layout currentPage="projects">
   <h1 class="projects-header">a few things i've worked on over the years</h1>
   <div class="projects-grid">
-    {projectsWithContent.map(({ project, Content }) => (
+    {projectsWithContent.map(({ project, Content }, index) => (
       <Project
         name={project.data.name}
         icon={project.data.icon}
         action={project.data.action}
         url={project.data.url}
+        index={index}
       >
         <Content />
       </Project>

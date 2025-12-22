@@ -1,7 +1,7 @@
 ---
 name: web.lab
 icon: weblab.svg
-order: 2
+date: 2021-08-10
 action: watch my lectures
 url: https://youtube.com/playlist?list=PL0xuolWUmlBoLhKue65koAoJ_jX5JM8wi
 ---

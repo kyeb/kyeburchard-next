@@ -1,17 +1,49 @@
 ---
+import { Icon } from 'astro-icon/components';
+import { Image, type ImageMetadata } from 'astro:assets';
+import applicationWindowIcon from '../assets/icons/icons8-application-window-100.png';
+import streetLampIcon from '../assets/icons/icons8-street-lamp-100.png';
+import apiV2Icon from '../assets/icons/api-v2.svg';
+import hackmit2018Icon from '../assets/icons/hackmit2018.svg';
+import hackmit2019Icon from '../assets/icons/hackmit2019.svg';
+import weblabIcon from '../assets/icons/weblab.svg';
+
 interface Props {
   name: string;
   icon?: string;
   action?: string;
   url?: string;
+  index?: number;
 }
 
-const { name, icon, action, url } = Astro.props;
+const { name, icon, action, url, index } = Astro.props;
+
+const pngIconMap: Record<string, ImageMetadata> = {
+  'icons8-application-window-100.png': applicationWindowIcon,
+  'icons8-street-lamp-100.png': streetLampIcon,
+};
+
+const svgIconMap: Record<string, ImageMetadata> = {
+  'api-v2.svg': apiV2Icon,
+  'hackmit2018.svg': hackmit2018Icon,
+  'hackmit2019.svg': hackmit2019Icon,
+  'weblab.svg': weblabIcon,
+};
 
 const renderIcon = (icon: string) => {
-  if (icon.startsWith('fa-')) {
-    return { type: 'fa', class: `fas ${icon}` };
-  } else if (icon.endsWith('.png') || icon.endsWith('.svg')) {
+  if (icon.startsWith('tabler:')) {
+    return { type: 'tabler', name: icon };
+  } else if (icon.endsWith('.png')) {
+    const imageAsset = pngIconMap[icon];
+    if (imageAsset) {
+      return { type: 'optimized-image', asset: imageAsset };
+    }
+    return { type: 'image', src: `/icons/${icon}` };
+  } else if (icon.endsWith('.svg')) {
+    const imageAsset = svgIconMap[icon];
+    if (imageAsset) {
+      return { type: 'optimized-image', asset: imageAsset };
+    }
     return { type: 'image', src: `/icons/${icon}` };
   }
   return null;
@@ -22,7 +54,12 @@ const iconData = icon ? renderIcon(icon) : null;
 
 <div class="content project-container">
   <div class="project-header">
-    {iconData?.type === 'fa' && <i class={iconData.class}></i>}
+    {iconData?.type === 'tabler' && <Icon name={iconData.name} size={24} />}
+    {iconData?.type === 'optimized-image' && (
+      <div class="project-icon-image-container">
+        <Image class="project-icon-image" src={iconData.asset} alt="" width={24} height={24} loading={index !== undefined && index < 10 ? "eager" : "lazy"} />
+      </div>
+    )}
     {iconData?.type === 'image' && (
       <div class="project-icon-image-container">
         <img class="project-icon-image" src={iconData.src} alt="" />
@@ -36,7 +73,7 @@ const iconData = icon ? renderIcon(icon) : null;
       <div class="project-action">
         <a href={url} class="project-action-link">
           <div>{action}</div>
-          <i class="fas fa-arrow-right"></i>
+          <Icon name="tabler:arrow-right" size={16} />
         </a>
       </div>
     )}

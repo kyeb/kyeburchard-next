@@ -1,7 +1,7 @@
 ---
 name: streetsmarts
-icon: icons8-street-lamp-100.png
-order: 7
+icon: tabler:lamp-2
+date: 2021-08-05
 action: learn more
 url: https://lrylander.github.io/StreetSmarts/
 ---

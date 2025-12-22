@@ -1,7 +1,7 @@
 ---
 name: hackmit 2019
 icon: hackmit2019.svg
-order: 5
+date: 2021-08-07
 action: see the site
 url: https://archive.hackmit.org/2019/
 ---
