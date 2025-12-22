@@ -172,6 +172,10 @@ h1 {
   font-size: 1.1rem;
 }
 
+.about-content p {
+  margin-bottom: 0.8rem;
+}
+
 .about-content a {
   text-decoration: none;
   color: var(--link);
