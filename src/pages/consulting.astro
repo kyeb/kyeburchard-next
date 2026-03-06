@@ -1,0 +1,84 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout currentPage="consulting">
+  <div class="consulting-content">
+    <p>
+      I'm a founding engineer building production AI agent systems — tool execution, retrieval
+      pipelines, evals, and streaming at scale. Before that, I was a staff engineer at Stripe
+      building the API layer that powers SDKs, docs, and the dashboard across the entire product.
+      MIT EECS.
+    </p>
+    <p>
+      I've shipped agentic systems that run in production and know where the common failure modes
+      are. I take a small number of engagements on the side.
+    </p>
+
+    <h2>AI implementation audit</h2>
+    <p>
+      You're building with LLMs or agents and want a real expert to pressure-test it before you
+      commit. I'll review your architecture, tooling choices, retrieval setup, and eval coverage —
+      and deliver a written assessment with concrete recommendations.
+    </p>
+    <p>This is for teams that want to move fast and not find out later they built on the wrong foundation.</p>
+
+    <h2>Agent prototype</h2>
+    <p>
+      A working agent for a specific workflow — not a demo, something that actually runs. I'll
+      scope it, build it, and hand it off with documentation.
+    </p>
+    <p>If you're not sure what's possible or you've tried and hit walls, this is the fastest way to find out.</p>
+
+    <h2>RAG / retrieval</h2>
+    <p>
+      End-to-end retrieval pipeline built to production standards: ingestion, chunking, embedding,
+      retrieval, reranking, and evals. If your current setup returns garbage or you're starting
+      from scratch and want it done right, this is the engagement.
+    </p>
+
+    <h2>Advisory</h2>
+    <p>
+      Lightweight ongoing advisory for early-stage startups. Monthly calls, async feedback, honest
+      technical direction from someone who has shipped agent platforms and API infrastructure at scale.
+    </p>
+    <p>Equity only. Not taking cash advisory work at this time.</p>
+
+    <p class="cta">
+      <a href="mailto:consulting@kyeb.com">Get in touch</a> for availability and pricing.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .consulting-content {
+    font-size: 1.1rem;
+  }
+
+  .consulting-content p {
+    font-weight: 300;
+    margin-bottom: 0.8rem;
+  }
+
+  .consulting-content h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .consulting-content a {
+    text-decoration: none;
+    color: var(--link);
+    padding-bottom: 1px;
+    border-bottom: 1px solid var(--link-underline);
+  }
+
+  .consulting-content a:hover {
+    border-bottom: 1px solid var(--link);
+  }
+
+  .cta {
+    margin-top: 2rem;
+  }
+</style>

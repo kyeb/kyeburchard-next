@@ -1,6 +1,6 @@
 ---
 interface Props {
-  currentPage: 'about' | 'projects' | 'posts' | '';
+  currentPage: 'about' | 'projects' | 'posts' | 'consulting' | '';
 }
 
 const { currentPage } = Astro.props;
@@ -9,6 +9,7 @@ const pages = [
   { name: 'about', path: '/' },
   { name: 'projects', path: '/projects' },
   { name: 'posts', path: '/posts' },
+  { name: 'consulting', path: '/consulting' },
 ] as const;
 ---
 
