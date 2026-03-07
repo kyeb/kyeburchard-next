@@ -7,21 +7,25 @@ import Layout from '../layouts/Layout.astro';
     <p>
       I'm a founding engineer at Falconer, where I build production AI agent systems — tool
       execution, retrieval pipelines, evals, and streaming at scale. Before that, staff engineer
-      at Stripe. MIT EECS. I take on a small number of consulting engagements on the side.
+      at Stripe. MIT EECS. I take on a small number of consulting engagements.
     </p>
     <p>
-      Most of what I see go wrong: teams build rigid workflow pipelines that break the moment users
-      go off-script. The better approach is a general agentic loop with well-designed tools — the
-      model is good enough to figure out what to call and in what order. Evals built on the happy path are mostly useless
-      too; the signal is in the failure cases, and end-to-end evals catch things that
-      component-level evals never will. Don't optimize for model cost early either — build on the
-      best available model, ship something that works, and find the cheaper paths later.
+      Teams often overfit to rigid workflow pipelines — the kind that break the moment a user does
+      something unexpected. In many cases a general agentic loop with well-designed tools works
+      better, and the architecture decision is easier to get right early than to fix later. Most
+      eval suites are also built on the happy path, which misses where the real failures happen and
+      makes it harder to ship meaningful improvements. And premature model cost optimization tends
+      to distort product decisions before you even know what you're building.
     </p>
     <p>
-      I'm most useful when the question is around agent architecture, eval design, tool design, or
-      getting something from demo to production — including building an end-to-end prototype in a
-      new area if that's what you need to figure out if something is worth pursuing.
-      <a href="mailto:consulting@kyeb.com">Get in touch</a> if any of that sounds useful.
+      I advise on architecture, tool design, and eval strategy — the decisions that are expensive
+      to undo. I also sometimes build: if you need an end-to-end prototype to figure out whether
+      an idea is worth pursuing at all, I can do that in a tight sprint.
+    </p>
+    <p>
+      If you're building an agentic product and need a second opinion on architecture, evals, or
+      whether something is actually worth building, <a href="mailto:consulting@kyeb.com">reach out
+      with a bit of context</a>.
     </p>
   </div>
 </Layout>
