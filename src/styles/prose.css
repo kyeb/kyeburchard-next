@@ -1,0 +1,59 @@
+/* Prose typography for blog post content */
+
+.prose {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.prose p {
+  padding-bottom: 0.8em;
+}
+
+.prose a {
+  text-decoration: none;
+  color: var(--link);
+  padding-bottom: 1px;
+  border-bottom: 1px solid var(--link-underline);
+}
+
+.prose a:hover {
+  border-bottom: 1px solid var(--link);
+}
+
+.prose li {
+  font-weight: 300;
+  margin-bottom: 0.4em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  padding-bottom: 0;
+  margin-top: -0.4em;
+  margin-bottom: 0.4em;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--link-underline);
+  padding-left: 1em;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 2em 0;
+}
+
+.prose code {
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 0.15em 0.3em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.prose em {
+  font-style: italic;
+}

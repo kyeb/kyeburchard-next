@@ -17,8 +17,7 @@ const posts = defineCollection({
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
-    excerpt: z.string().optional(),
-    image: z.string().optional(),
+    tagline: z.string().optional(),
   }),
 });
 

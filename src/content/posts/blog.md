@@ -1,8 +1,7 @@
 ---
 title: someday
-image: none
 date: 2021-02-18
-excerpt: maybe, if I ever get motivated to actually write something interesting...
+tagline: maybe, if I ever get motivated to actually write something interesting...
 ---
 
 I keep meaning to start posting real, useful, technical content, but still
