@@ -2,9 +2,14 @@
 import PostHog from '../components/posthog.astro';
 interface Props {
   currentPage: 'about' | 'projects' | 'posts' | 'consulting' | '';
+  title?: string;
+  description?: string;
 }
 
-const { currentPage } = Astro.props;
+const { currentPage, title, description } = Astro.props;
+
+const pageTitle = title ? `${title} | kyeb` : 'kyeb';
+const pageDescription = description || "I'm a founding engineer at Falconer, building production AI agent systems. Previously staff engineer at Stripe. MIT EECS.";
 
 const pages = [
   { name: 'about', path: '/' },
@@ -19,7 +24,12 @@ const pages = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kye Burchard</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
     <link rel="canonical" href={Astro.url.href} />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

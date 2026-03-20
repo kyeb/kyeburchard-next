@@ -14,7 +14,7 @@ const projectsWithContent = await Promise.all(
 );
 ---
 
-<Layout currentPage="projects">
+<Layout currentPage="projects" title="projects">
   <h1 class="projects-header">a few things i've worked on over the years</h1>
   <div class="projects-grid">
     {projectsWithContent.map(({ project, Content }, index) => (

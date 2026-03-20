@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout currentPage="posts" title={post.data.title}>
+  <article class="post">
+    <h1>{post.data.title}</h1>
+    <p class="post-date">{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post h1 {
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .post-date {
+    font-style: italic;
+    font-weight: 300;
+    padding-bottom: 2rem;
+  }
+</style>
