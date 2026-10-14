@@ -1,7 +1,7 @@
 ---
 import PostHog from '../components/posthog.astro';
 interface Props {
-  currentPage: 'about' | 'projects' | 'posts' | 'consulting' | '';
+  currentPage: 'about' | 'projects' | 'posts' | '';
   title?: string;
   description?: string;
 }
@@ -15,7 +15,6 @@ const pages = [
   { name: 'about', path: '/' },
   { name: 'projects', path: '/projects' },
   { name: 'posts', path: '/posts' },
-  { name: 'consulting', path: '/consulting' },
 ] as const;
 ---
 
